@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaDeNegocio", "..\Dominio\CamadaDeNegocio.csproj", "{E459C070-07A7-4200-9EA7-D6023F2674FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaDeNegocio", ".\Negocio\CamadaDeNegocio.csproj", "{E459C070-07A7-4200-9EA7-D6023F2674FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaDeDados", "..\Dados\CamadaDeDados.csproj", "{57C32AFE-0357-4BFA-93F0-93AF9933E32A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CamadaDeDados", ".\Dados\CamadaDeDados.csproj", "{57C32AFE-0357-4BFA-93F0-93AF9933E32A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaDeApresentacao", "..\Presentation\CamadaDeApresentacao.csproj", "{5761C20E-0B6D-49E3-B464-46B87DF76B58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CamadaDeApresentacao", ".\Presentation\CamadaDeApresentacao.csproj", "{5761C20E-0B6D-49E3-B464-46B87DF76B58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
