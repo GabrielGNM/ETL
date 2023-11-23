@@ -2,17 +2,20 @@
 using CamadaDeDados.Models;
 using CamadaDeNegocio;
 
-namespace Program
+namespace CamadaDeApresentacao
 {
     class Program
-    { 
+    {
         static void Main()
         {
-            var dataLayer = new Dados();
+            var dataLayer = new AcessoBancoDeDados();
             var businessLogicLayer = new Transformar();
 
             // Extração de dados
-            List<Account> rawData = dataLayer.ExtractData();
+            //var Accounts = dataLayer.ExtractExemploData();
+            var Pacientes = dataLayer.ExtractPacienteData();
+            var Agendamentos = dataLayer.ExtractAgendamentoData();
+            var DescartesEcologicos = dataLayer.ExtractDescarteEcologicoData();
 
             // Transformação de dados
             //List<string> transformedData = businessLogicLayer.TransformData(rawData);
