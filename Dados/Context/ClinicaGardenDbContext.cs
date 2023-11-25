@@ -5,14 +5,14 @@ namespace CamadaDeDados.Context
 {
     public class ClinicaGardenDbContext : DbContext
     {
-        public DbSet<PacienteModel> Pacientes { get; set; }
-        public DbSet<AgendamentoModel> Agendamentos { get; set; }
-        public DbSet<DescarteEcologicoModel> DescartesEcologicos { get; set; }
+        public DbSet<PacienteModel> paciente { get; set; }
+        public DbSet<AgendamentoModel> agendamentos { get; set; }
+        public DbSet<DescarteEcologicoModel> descarteecologicos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Configurar a string de conexão do seu banco de dados
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStringTechMuse"));
+            optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("ConnectionStringClinicaGarden"));
         }
     }
 }

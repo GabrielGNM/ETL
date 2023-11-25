@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CamadaDeServico\CamadaDeServico.csproj" />
     <ProjectReference Include="..\Dados\CamadaDeDados.csproj" />
     <ProjectReference Include="..\Negocio\CamadaDeNegocio.csproj" />
   </ItemGroup>

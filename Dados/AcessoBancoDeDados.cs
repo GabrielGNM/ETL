@@ -5,72 +5,72 @@ namespace CamadaDeDados
 {
     public class AcessoBancoDeDados
     {
-        //public List<Account> ExtractExemploData()
-        //{
-        //    // Lógica de extração de dados, pode ser consulta a um banco de dados, leitura de arquivo, etc.
-        //    // Retornar dados brutos, por exemplo, de um banco de dados
-        //    var rawData = new List<Account>();
-        //    using (var dbContext = new TechMuseDbContext())
-        //    {
-        //        // Obter todos os registros da tabela Account
-        //        var accounts = dbContext.Accounts.ToList();
-        //        rawData = accounts;
-        //        // Agora, 'accounts' contém todos os registros da tabela Account
-        //    }
-        //    return rawData;
-        //}
+        private readonly ClinicaGardenDbContext dbContext;
+
+        public AcessoBancoDeDados()
+        {
+            dbContext = new ClinicaGardenDbContext();
+        }
+
         public List<PacienteModel> ExtractPacienteData()
         {
-            // Lógica de extração de dados, pode ser consulta a um banco de dados, leitura de arquivo, etc.
-            // Retornar dados brutos, por exemplo, de um banco de dados
-            var listaPacientes = new List<PacienteModel>();
-            using (var dbContext = new ClinicaGardenDbContext())
+            try
             {
-                // Obter todos os registros da tabela Account
-                var retorno = dbContext.Pacientes.ToList();
-                listaPacientes = retorno;
-                // Agora, 'accounts' contém todos os registros da tabela Account
+                return dbContext.paciente.ToList();
             }
-            return listaPacientes;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error extracting Paciente data: {ex.Message}");
+                // Log the exception details for further investigation
+                // You can use a logging library or print to console for simplicity
+                return new List<PacienteModel>(); // Return an empty list or handle the error as needed
+            }
         }
+
         public List<AgendamentoModel> ExtractAgendamentoData()
         {
-            // Lógica de extração de dados, pode ser consulta a um banco de dados, leitura de arquivo, etc.
-            // Retornar dados brutos, por exemplo, de um banco de dados
-            var listaAgendamentos = new List<AgendamentoModel>();
-            using (var dbContext = new ClinicaGardenDbContext())
+            try
             {
-                // Obter todos os registros da tabela Account
-                var retorno = dbContext.Agendamentos.ToList();
-                listaAgendamentos = retorno;
-                // Agora, 'accounts' contém todos os registros da tabela Account
+                return dbContext.agendamentos.ToList();
             }
-            return listaAgendamentos;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error extracting Agendamento data: {ex.Message}");
+                // Log the exception details for further investigation
+                // You can use a logging library or print to console for simplicity
+                return new List<AgendamentoModel>(); // Return an empty list or handle the error as needed
+            }
         }
+
         public List<DescarteEcologicoModel> ExtractDescarteEcologicoData()
         {
-            // Lógica de extração de dados, pode ser consulta a um banco de dados, leitura de arquivo, etc.
-            // Retornar dados brutos, por exemplo, de um banco de dados
-            var listaDescartesEcologicos = new List<DescarteEcologicoModel>();
-            using (var dbContext = new ClinicaGardenDbContext())
+            try
             {
-                // Obter todos os registros da tabela Account
-                var retorno = dbContext.DescartesEcologicos.ToList();
-                listaDescartesEcologicos = retorno;
-                // Agora, 'accounts' contém todos os registros da tabela Account
+                return dbContext.descarteecologicos.ToList();
             }
-            return listaDescartesEcologicos;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error extracting DescarteEcologico data: {ex.Message}");
+                // Log the exception details for further investigation
+                // You can use a logging library or print to console for simplicity
+                return new List<DescarteEcologicoModel>(); // Return an empty list or handle the error as needed
+            }
         }
 
         public void LoadData(List<string> transformedData)
         {
-            // Lógica de carregamento de dados, por exemplo, inserção em um banco de dados
+            // Your loading logic here
             foreach (var data in transformedData)
             {
                 // Lógica de inserção
                 Console.WriteLine($"Dado carregado: {data}");
             }
         }
-    }
 
+        // Implement IDisposable to properly dispose of the DbContext
+        public void Dispose()
+        {
+            dbContext.Dispose();
+        }
+    }
 }
