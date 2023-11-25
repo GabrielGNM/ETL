@@ -7,25 +7,25 @@ namespace CamadaDeNegocio.Models.DataBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid PacienteId { get; set; }
+        public Guid paciente_id { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string Nome { get; set; }
+        public string? nome { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string Endereco { get; set; }
+        public string? endereco { get; set; }
 
         [Required]
-        public DateTime DataNascimento { get; set; }
-
-        [Required]
-        [MaxLength(20)]
-        public string Genero { get; set; }
+        public DateTime datanascimento { get; set; }
 
         [Required]
         [MaxLength(20)]
-        public string Telefone { get; set; }
+        public string? genero { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string? telefone { get; set; }
     }
 }

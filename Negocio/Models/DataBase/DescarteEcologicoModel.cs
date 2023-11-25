@@ -7,17 +7,17 @@ namespace CamadaDeNegocio.Models.DataBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid DescarteId { get; set; }
+        public Guid descarte_id { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string TipoResiduo { get; set; }
+        public string? tiporesiduo { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string MetodoDescarte { get; set; }
+        public string? metododescarte { get; set; }
 
         [Required]
-        public DateTime DataDescarte { get; set; }
+        public DateTime datadescarte { get; set; }
     }
 }

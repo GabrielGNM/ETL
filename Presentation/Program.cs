@@ -1,26 +1,34 @@
 ﻿using CamadaDeDados;
+using CamadaDeNegocio.Models.DataBase;
 using CamadaDeServico;
 
 namespace CamadaDeApresentacao
 {
     class Program
     {
-        static async Task Main()
+        static void Main()
         {
             var dataLayer = new AcessoBancoDeDados();
             var businessLogicLayer = new ServiceTransform();
 
             // Extração de dados
 
-            var Pacientes = dataLayer.ExtractPacienteData();
-            var Agendamentos = dataLayer.ExtractAgendamentoData();
-            var DescartesEcologicos = dataLayer.ExtractDescarteEcologicoData();
+            var pacientes = dataLayer.ExtractPacienteData();
+            var agendamentos = dataLayer.ExtractAgendamentoData();
+            var descartesEcologicos = dataLayer.ExtractDescarteEcologicoData();
 
-            Console.WriteLine(DescartesEcologicos.ToString());
-            Console.WriteLine(Agendamentos.ToString());
-            Console.WriteLine(Pacientes.ToString());
-
-
+            foreach (var item in pacientes)
+            {
+                Console.WriteLine(item.nome.ToString());
+            }
+            foreach (var item in agendamentos)
+            {
+                Console.WriteLine(item.procedimento_id.ToString());
+            }
+            foreach (var item in descartesEcologicos)
+            {
+                Console.WriteLine(item.descarte_id.ToString());
+            }
 
             //dataLayer.LoadData(dataReadyToLoad);
 

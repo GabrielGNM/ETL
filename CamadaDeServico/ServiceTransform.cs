@@ -5,7 +5,7 @@ namespace CamadaDeServico
 {
     public class ServiceTransform
     {
-        public PowerBiModel _PowerBiModel { get; set; }
+        private PowerBiModel? _PowerBiModel { get; set; }
         public static void TransformData(List<PacienteModel> Pacientes, List<AgendamentoModel> Agendamentos, List<DescarteEcologicoModel> DescartesEcologicos)
         {
            // _PowerBiModel.MediaDescartePorAtendimento = BuscaMediaDescartePorAtendimento(Agendamentos, DescartesEcologicos);

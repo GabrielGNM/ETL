@@ -1,5 +1,5 @@
 ﻿using CamadaDeDados.Context;
-using CamadaDeDados.Models;
+using CamadaDeNegocio.Models.DataBase;
 
 namespace CamadaDeDados
 {
@@ -16,7 +16,7 @@ namespace CamadaDeDados
         {
             try
             {
-                return dbContext.paciente.ToList();
+                return dbContext.pacientes.ToList();
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace CamadaDeDados
         {
             try
             {
-                return dbContext.descarteecologicos.ToList();
+                return dbContext.descartesecologicos.ToList();
             }
             catch (Exception ex)
             {
