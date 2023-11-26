@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "ETLAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ConnectionStringClinicaGarden": "Host=localhost;Port=5432;Database=clinicagarden;Username=postgres;Password=ClinicaGarden;"
+      },
+      "applicationUrl": "https://localhost:5000"
+    }
+  }
+}
