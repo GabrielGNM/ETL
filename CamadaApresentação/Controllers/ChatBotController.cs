@@ -1,5 +1,4 @@
-﻿// ETLController.cs
-using CamadaDeDados;
+﻿using CamadaDeDados;
 using CamadaDeDados.Context;
 using CamadaDeServico;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +25,7 @@ namespace CamadaDeApresentação.Controllers
 
                     foreach (var item in pacientes)
                     {
-                        Console.WriteLine(item.nome.ToString());
+                        Console.WriteLine(item?.nome?.ToString());
                     }
                 }
 
