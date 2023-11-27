@@ -5,11 +5,12 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "swagger/index.html",
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5000;http://localhost:5001",
       "environmentVariables": {
-        "ConnectionStringClinicaGarden": "Host=localhost;Port=5432;Database=clinicagarden;Username=postgres;Password=ClinicaGarden;"
-      },
-      "applicationUrl": "https://localhost:5000;https://localhost:5001"
+        "ConnectionStringClinicaGarden": "Host=localhost;Port=5432;Database=clinicagarden;Username=postgres;Password=ClinicaGarden;",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

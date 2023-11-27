@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CamadaDeApresentação.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("EtlApi/")]
     [ApiController]
     public class ETLController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("BuscarDadosPowertBI")]
         public IActionResult ExecuteETL()
         {
             try
@@ -17,7 +17,7 @@ namespace CamadaDeApresentação.Controllers
                 using (var context = new ClinicaGardenDbContext())
                 {
                     var dataLayer = new AcessoBancoDeDados();
-                    var businessLogicLayer = new ServiceTransform();
+                    //var businessLogicLayer = new ServiceTransform();
 
                     // Extração de dados
 
