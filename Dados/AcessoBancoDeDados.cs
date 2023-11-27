@@ -21,9 +21,7 @@ namespace CamadaDeDados
             catch (Exception ex)
             {
                 Console.WriteLine($"Error extracting Paciente data: {ex.Message}");
-                // Log the exception details for further investigation
-                // You can use a logging library or print to console for simplicity
-                return new List<PacienteModel>(); // Return an empty list or handle the error as needed
+                return new List<PacienteModel>();
             }
         }
 
@@ -36,9 +34,7 @@ namespace CamadaDeDados
             catch (Exception ex)
             {
                 Console.WriteLine($"Error extracting Agendamento data: {ex.Message}");
-                // Log the exception details for further investigation
-                // You can use a logging library or print to console for simplicity
-                return new List<AgendamentoModel>(); // Return an empty list or handle the error as needed
+                return new List<AgendamentoModel>();
             }
         }
 
@@ -51,9 +47,7 @@ namespace CamadaDeDados
             catch (Exception ex)
             {
                 Console.WriteLine($"Error extracting DescarteEcologico data: {ex.Message}");
-                // Log the exception details for further investigation
-                // You can use a logging library or print to console for simplicity
-                return new List<DescarteEcologicoModel>(); // Return an empty list or handle the error as needed
+                return new List<DescarteEcologicoModel>(); 
             }
         }
 
@@ -65,12 +59,6 @@ namespace CamadaDeDados
                 // Lógica de inserção
                 Console.WriteLine($"Dado carregado: {data}");
             }
-        }
-
-        // Implement IDisposable to properly dispose of the DbContext
-        public void Dispose()
-        {
-            dbContext.Dispose();
         }
     }
 }

@@ -7,9 +7,9 @@ namespace CamadaDeApresentação.Controllers
 {
     [Route("EtlApi/")]
     [ApiController]
-    public class ETLController : ControllerBase
+    public class PowerBiController : ControllerBase
     {
-        [HttpGet("BuscarDadosPowertBI")]
+        [HttpGet("BuscarDadosPowerBi")]
         public IActionResult ExecuteETL()
         {
             try
@@ -17,19 +17,11 @@ namespace CamadaDeApresentação.Controllers
                 using (var context = new ClinicaGardenDbContext())
                 {
                     var dataLayer = new AcessoBancoDeDados();
-                    //var businessLogicLayer = new ServiceTransform();
+                    var serviceLayer = new ServiceTransform();
 
-                    // Extração de dados
-
-                    var pacientes = dataLayer.ExtractPacienteData();
-
-                    foreach (var item in pacientes)
-                    {
-                        Console.WriteLine(item?.nome?.ToString());
-                    }
+                    var resultadoPowerBi = serviceLayer.TransformData(dataLayer.ExtractPacienteData(), dataLayer.ExtractAgendamentoData(), dataLayer.ExtractDescarteEcologicoData());
+                    return Ok(resultadoPowerBi);
                 }
-
-                return Ok("Processo ETL concluído com sucesso!");
             }
             catch (Exception ex)
             {

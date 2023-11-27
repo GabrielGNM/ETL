@@ -19,5 +19,7 @@ namespace CamadaDeNegocio.Models.DataBase
 
         [Required]
         public DateTime datadescarte { get; set; }
+
+        public float peso {  get; set; }
     }
 }

@@ -24,7 +24,6 @@ namespace CamadaDeApresentação
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ETL Api", Version = "v1" });
             });
 
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -41,7 +40,6 @@ namespace CamadaDeApresentação
 
             app.UseRouting();
 
-            //app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {

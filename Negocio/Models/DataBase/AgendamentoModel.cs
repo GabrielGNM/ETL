@@ -14,7 +14,7 @@ namespace CamadaDeNegocio.Models.DataBase
         public string? paciente_id { get; set; }
 
         [Required]
-        public int procedimento_id { get; set; }
+        public string? procedimentos { get; set; }
 
         [Required]
         [MaxLength(50)]
