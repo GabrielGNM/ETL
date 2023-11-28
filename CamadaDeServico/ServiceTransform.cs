@@ -53,29 +53,34 @@ namespace CamadaDeServico
         {
             var resultado = new Dictionary<string, string>();
 
+            // Calcule a idade de cada paciente e associe cada agendamento com o procedimento correspondente
             var consulta = from paciente in Pacientes
                            join agendamento in Agendamentos on paciente.paciente_id.ToString() equals agendamento.paciente_id
                            let idade = DateTime.Now.Year - paciente.datanascimento.Year
                            select new { FaixaEtaria = ObterFaixaEtaria(idade), Procedimento = agendamento.procedimentos };
 
+            // Agrupe os procedimentos por faixa etária e conte a ocorrência de cada procedimento em cada faixa etária
             var contagemPorFaixa = consulta
                 .GroupBy(x => new { x.FaixaEtaria, x.Procedimento })
                 .Select(g => new { g.Key.FaixaEtaria, g.Key.Procedimento, Contagem = g.Count() });
 
+            // Determine o procedimento mais pedido em cada faixa etária
             var procedimentoMaisPedidoPorFaixa = contagemPorFaixa
                 .GroupBy(x => x.FaixaEtaria)
                 .Select(g => new { FaixaEtaria = g.Key, Procedimento = g.OrderByDescending(x => x.Contagem).First().Procedimento });
 
+            // Adicione os resultados ao dicionário
             foreach (var item in procedimentoMaisPedidoPorFaixa)
             {
                 resultado.Add(item.FaixaEtaria, item.Procedimento);
             }
 
             return resultado;
-
         }
-        public static Dictionary<string, List<string>>? BuscaQtdAgendamentoPorFaixaEtaria(List<PacienteModel> Pacientes, List<AgendamentoModel> Agendamentos) {
-           
+
+        public static Dictionary<string, List<string>>? BuscaQtdAgendamentoPorFaixaEtaria(List<PacienteModel> Pacientes, List<AgendamentoModel> Agendamentos)
+        {
+
             var consulta = from paciente in Pacientes
                            join agendamento in Agendamentos on paciente.paciente_id.ToString() equals agendamento.paciente_id
                            let idade = DateTime.Now.Year - paciente.datanascimento.Year
@@ -96,6 +101,12 @@ namespace CamadaDeServico
                 );
 
             return top5ProcedimentosPorFaixa;
+        }
+        static int ObterIdade(DateTime dataNascimento)
+        {
+            var idade = DateTime.Now.Year - dataNascimento.Year;
+            if (DateTime.Now.Month > dataNascimento.Month) idade += 1;
+            return idade;
         }
         static string ObterFaixaEtaria(int idade)
         {
