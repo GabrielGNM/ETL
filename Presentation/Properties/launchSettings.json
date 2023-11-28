@@ -4,7 +4,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ConnectionStringTechMuse": "Data Source=localhost;Initial Catalog=TechMuse;User ID=TechMuse;Password=Mudar123;"
+        "ConnectionStringClinicaGarden": "Host=localhost;Port=5432;Database=clinicagarden;Username=postgres;Password=ClinicaGarden;"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }

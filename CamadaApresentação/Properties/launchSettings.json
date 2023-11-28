@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ETLAPI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5000;http://localhost:5001",
+      "environmentVariables": {
+        "ConnectionStringClinicaGarden": "Host=localhost;Port=5432;Database=clinicagarden;Username=postgres;Password=ClinicaGarden;",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
