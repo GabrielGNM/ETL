@@ -102,12 +102,6 @@ namespace CamadaDeServico
 
             return top5ProcedimentosPorFaixa;
         }
-        static int ObterIdade(DateTime dataNascimento)
-        {
-            var idade = DateTime.Now.Year - dataNascimento.Year;
-            if (DateTime.Now.Month > dataNascimento.Month) idade += 1;
-            return idade;
-        }
         static string ObterFaixaEtaria(int idade)
         {
             if (idade <= 18)
